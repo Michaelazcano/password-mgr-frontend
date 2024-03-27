@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Password Manager</title>
-    <link rel="stylesheet" type="text/css" href="styles/common.css">
     <style type="text/css">
         .main{
             display: flex;
-            align-items: center;
             justify-content: center;
+            width: 100%;
         }
         input{
-            width: 75%;
+
             padding: 12px 20px;
             margin: 8px 0;
         }
         .submitBtn{
             background-color: darkorange;
             color: aliceblue;
-
+            width: 50%;
         }
         .submitBtn:hover{
             background-color: bisque;
@@ -36,34 +35,33 @@
             background-color: #232936;
             color: aliceblue;
         }
-
+        .form{
+            display: flex;
+            flex-direction: column;
+            align-self: center;
+            justify-items: center;
+        }
 
     </style>
 </head>
 <body>
-<div class="container-fluid main">
-    <div>
+<div class="main">
+    <div class="form">
         <h1><em>BTC Login Page</em></h1>
 
-        <br>
 
         <label for="username"><b>Username: </b></label>
         <input type="text" id="username" name="username" placeholder="joe123" required>
 
-        <br><br>
-
-        <label for="email"><b>Email:</b></label>
-        <input type="email" id="email" name="email" placeholder="joe123@gmail.com" required>
-
-        <br><br>
 
         <label for="password"><b>Password:</b></label>
         <input type="password" name="password" id="password" placeholder="password" required>
 
-        <br><br>
 
-        <input class="submitBtn" type="submit" name="submit" value="Submit">
-        <input class="forgotBtn" type="button" name="forgot" value="Forgot Password">
+        <div style="display: flex; justify-content: center;">
+            <input class="submitBtn" type="submit" name="submit" value="Submit">
+
+        </div>
     </div>
 </div>
 
