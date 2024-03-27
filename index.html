@@ -2,10 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password manager</title>
+    <title>Password Manager</title>
+    <link rel="stylesheet" type="text/css" href="styles/common.css">
+    <style type="text/css">
+        .main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        input{
+            width: 75%;
+            padding: 12px 20px;
+            margin: 8px 0;
+        }
+        .submitBtn{
+            background-color: darkorange;
+            color: aliceblue;
+
+        }
+        .submitBtn:hover{
+            background-color: bisque;
+            color: #232936;
+
+        }
+        label{
+            font-size: 15pt;
+            text-align: left;
+        }
+        h1{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background-color: #232936;
+            color: aliceblue;
+        }
+
+
+    </style>
 </head>
 <body>
-    
+<div class="container-fluid main">
+    <div>
+        <h1><em>BTC Login Page</em></h1>
+
+        <br>
+
+        <label for="username"><b>Username: </b></label>
+        <input type="text" id="username" name="username" placeholder="joe123" required>
+
+        <br><br>
+
+        <label for="email"><b>Email:</b></label>
+        <input type="email" id="email" name="email" placeholder="joe123@gmail.com" required>
+
+        <br><br>
+
+        <label for="password"><b>Password:</b></label>
+        <input type="password" name="password" id="password" placeholder="password" required>
+
+        <br><br>
+
+        <input class="submitBtn" type="submit" name="submit" value="Submit">
+        <input class="forgotBtn" type="button" name="forgot" value="Forgot Password">
+    </div>
+</div>
+
+
+
 </body>
 </html>
