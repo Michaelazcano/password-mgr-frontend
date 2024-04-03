@@ -40,7 +40,7 @@
       <input type="text" class="form-control " placeholder="Search" aria-label="Search"
         aria-describedby="basic-addon1" />
     </div>
-    <button class="btn btn-primary ms-2">Add</button>
+    <button id="addBtn" class="btn btn-primary ms-2">Add</button>
   </div>
 
   <div class="container-sm border rounded-2">
@@ -56,7 +56,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h1 class="modal-title fs-5" id="editorModalLabel">Modal title</h1>
+          <input class="modal-title fs-5" id="editorModalLabel" placeholder="Modal Title"></input>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
@@ -75,12 +75,14 @@
     crossorigin="anonymous"></script>
 </body>
 <script>
+  
   var tableItems = [
-      { serviceName: 'Netflix', id: 1 },
-      { serviceName: 'Pandora', id: 2 },
-      { serviceName: 'Prime', id: 3 },
+      { serviceName: 'Netflix', id: 1, password: "123"},
+      { serviceName: 'Pandora', id: 2, password:'123'},
+      { serviceName: 'Prime', id: 3 , password:'123'},
     ];
   function Load() {
+    document.getElementById('addBtn').addEventListener('click', ModalControl(''))
     var theTable = document.querySelector("#passwords");
 
     // Create a new tbody element or use an existing one
@@ -93,14 +95,7 @@
       var row = document.createElement('tr');
 
       // Adding a closure to capture the current service item
-      row.addEventListener('click', (function (service) {
-        return function () {
-          var myModal = new bootstrap.Modal(document.getElementById('editorModal'));
-          myModal.show();
-          console.log(service);
-          document.getElementById('editorModalLabel').innerText = service.serviceName;
-        };
-      })(service));
+      row.addEventListener('click', ModalControl(service))
 
       var td = document.createElement('td');
       td.setAttribute("id", service.serviceName + "-" + service.id);
@@ -111,7 +106,23 @@
 
     theTable.appendChild(tbody);
   }
+function ModalControl(service){
+  return ()=>{
+    var myModal = new bootstrap.Modal(document.getElementById('editorModal'));
+          myModal.show();
+          console.log(service);
+          serviceNameInput = document.getElementById('editorModalLabel');
+          if (!service.serviceName){
+            serviceNameInput.value = 'Click to Rename';
 
+          }
+          else{
+            serviceNameInput.value = service.serviceName;
+
+          }
+          serviceNameInput.classList.add('border-0')
+  }
+}
   // Remove or define the purpose of showModal if necessary
 </script>
 
