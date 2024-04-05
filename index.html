@@ -81,9 +81,9 @@
       { serviceName: 'Pandora', id: 2, password:'123'},
       { serviceName: 'Prime', id: 3 , password:'123'},
     ];
-  function Load() {
-    document.getElementById('addBtn').addEventListener('click', ModalControl(''))
-    var theTable = document.querySelector("#passwords");
+    function loadTable(table){
+    
+    var theTable = document.getElementById("passwords");
 
     // Create a new tbody element or use an existing one
     var tbody = document.createElement('tbody');
@@ -91,7 +91,7 @@
 
     
 
-    tableItems.forEach(function (service){
+    table.forEach(function (service){
       var row = document.createElement('tr');
 
       // Adding a closure to capture the current service item
@@ -99,12 +99,17 @@
 
       var td = document.createElement('td');
       td.setAttribute("id", service.serviceName + "-" + service.id);
-      td.innerHTML = service.serviceName;
+      td.innerText = service.serviceName;
       row.appendChild(td);
       tbody.appendChild(row);
     });
 
     theTable.appendChild(tbody);
+    }
+  function Load() {
+   document.getElementById('addBtn').addEventListener('click', ModalControl(''))
+   loadTable(tableItems)
+  
   }
 function ModalControl(service){
   return ()=>{
@@ -113,8 +118,8 @@ function ModalControl(service){
           console.log(service);
           serviceNameInput = document.getElementById('editorModalLabel');
           if (!service.serviceName){
-            serviceNameInput.value = 'Click to Rename';
-
+            serviceNameInput.value = 'Click Add Name';
+            
           }
           else{
             serviceNameInput.value = service.serviceName;
