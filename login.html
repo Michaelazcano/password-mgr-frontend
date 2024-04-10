@@ -59,13 +59,22 @@
 
 
         <div style="display: flex; justify-content: center;">
-            <input class="submitBtn" type="submit" name="submit" value="Submit">
+            <input  id="loginBtn" class="submitBtn" type="submit" name="submit" value="Submit">
         </div>
 
     </div>
 </div>
-
-
+//TODO: remove this
+<script src="./apiHelper.js"></script>
+<script>
+document.getElementById('loginBtn').addEventListener('click',()=>{
+    const username = document.getElementById('username').value
+    const password = document.getElementById('password').value
+    console.log(username,password)
+    login(username,password)
+})
+</script>
+//this
 
 </body>
 </html>
